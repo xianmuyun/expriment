@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>时间</title>
+
+  <!--获取当前时间，格式为：yyyy-mm-dd hh:mm:ss -->
+  <script>
+    getDates();
+    function getDates(){
+      var date = new Date();
+      var year = date.getFullYear();
+      var dateArr = [date.getMonth() + 1,date.getDate(),date.getHours(),date.getMinutes(),date.getSeconds()];
+      for(var i=0;i<dateArr.length;i++){
+        if (dateArr[i] >= 1 && dateArr[i] <= 9) {
+          dateArr[i] = "0" + dateArr[i];
+        }
+      }
+      var strDate = year+'-'+dateArr[0]+'-'+dateArr[1]+' '+dateArr[2]+':'+dateArr[3]+':'+dateArr[4];
+      document.getElementById("dates").innerHTML = strDate;
+    }
+  </script>
+  <!--中国国际时间-->
+  <script>
+    function displayDate_1(){
+      document.getElementById("demo_1").innerHTML=Date();
+    }
+  </script>
+
+</head>
+<body>
+<p id="dates">时间</p>
+<button type="button" onclick="getDates()">显示日期</button>
+
+
+</body>
+</html>

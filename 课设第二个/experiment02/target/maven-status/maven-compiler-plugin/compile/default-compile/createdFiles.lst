@@ -1,0 +1,6 @@
+com\itheima\mapper\CourseMapper.class
+com\itheima\pojo\School.class
+com\itheima\pojo\Course.class
+com\itheima\service\CourseService.class
+com\itheima\controller\CourseController.class
+com\itheima\service\CourseServiceImpl.class

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="CourseMapper">
+    <!--根据id查询员工信息 -->
+    <select id="findById" parameterType="Integer"
+            resultType="com.itheima.pojo.Course">
+        select * from s_student where id = #{id}
+    </select>
+    <select id="findCourse"
+            parameterType="com.itheima.pojo.Course"
+            resultType="com.itheima.pojo.Course">
+            select * from s_student where sid=1
+    </select>
+    <!--修改员工信息-->
+    <update id="updateCourseHours" parameterType="com.itheima.pojo.Course">
+        update s_student
+        <set>
+            <if test="name !=null and name!=''">
+                name=#{name},
+            </if>
+            <if test="hours !=null and hours!=''">
+                hours=#{hours},
+            </if>
+            <if test="sid !=null and sid!=''">
+                sid=#{sid},
+            </if>
+        </set>
+        where id=#{id}
+    </update>
+    <!-- 插入员工信息 -->
+    <insert id="addCourse" parameterType="com.itheima.pojo.Course">
+        insert into s_student(id,name,hours,sid)values
+        (#{id},#{name},#{hours},#{sid})
+    </insert>
+    <select id="findAllCourse"
+            parameterType="com.itheima.pojo.Course"
+            resultType="com.itheima.pojo.Course">
+        select * from s_student
+    </select>
+
+</mapper>
+
